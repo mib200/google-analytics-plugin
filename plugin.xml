@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  id="com.cmackay.plugins.googleanalytics"
-  version="0.1.15">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.mib200.cordova.google-analytics"
+    version="1.0.0">
+
+  <name>Google Analytics</name>
+  <description>Google Analytics Cordova Plugin for iOS and Android</description>
+  <author>Manish Kumar</author>
+  <license>MIT License</license>
+  <keywords>Google analytics, GA, cordova, phonegap, ionic, plugin, ios, android</keywords>
 
   <engines>
     <engine name="cordova" version=">=3.0.0" />
   </engines>
-
-  <name>GoogleAnalytics</name>
-  <description>Plugin for Google Analytics Native SDKs (Android, iOS)</description>
-  <author>Craig MacKay</author>
-  <license>Apache 2.0</license>
-  <keywords>cordova,analytics</keywords>
-  <repo>https://github.com/cmackay/google-analytics-plugin.git</repo>
 
   <js-module src="www/analytics.js" name="GoogleAnalytics">
     <clobbers target="navigator.analytics" />
@@ -28,6 +27,10 @@
       </feature>
     </config-file>
 
+    <header-file src="ios/GoogleAnalyticsPlugin.h" />
+    <source-file src="ios/GoogleAnalyticsPlugin.m" />
+
+    <source-file src="ios/libGoogleAnalyticsServices.a" framework="true" />
     <header-file src="ios/GAI.h" />
     <header-file src="ios/GAIDictionaryBuilder.h" />
     <header-file src="ios/GAIEcommerceFields.h" />
@@ -38,9 +41,6 @@
     <header-file src="ios/GAILogger.h" />
     <header-file src="ios/GAITrackedViewController.h" />
     <header-file src="ios/GAITracker.h" />
-    <source-file src="ios/libGoogleAnalyticsServices.a" framework="true" />
-    <header-file src="ios/GoogleAnalyticsPlugin.h" />
-    <source-file src="ios/GoogleAnalyticsPlugin.m" />
 
     <framework src="SystemConfiguration.framework" />
     <framework src="CoreData.framework" />
@@ -51,7 +51,7 @@
   <platform name="android">
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="GoogleAnalytics">
-        <param name="android-package" value="com.cmackay.plugins.googleanalytics.GoogleAnalyticsPlugin" />
+        <param name="android-package" value="com.mib200.cordova.google-analytics.GoogleAnalyticsPlugin" />
       </feature>
     </config-file>
 
@@ -64,23 +64,8 @@
       <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     </config-file>
 
-    <source-file src="android/GoogleAnalyticsPlugin.java" target-dir="src/com/cmackay/plugins/googleanalytics" />
+    <source-file src="android/GoogleAnalyticsPlugin.java" target-dir="src/android" />
 
-    <proguard-config>
--keep class * extends java.util.ListResourceBundle {
-protected Object[][] getContents();
-}
--keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
-public static final *** NULL;
-}
--keepnames @com.google.android.gms.common.annotation.KeepName class *
--keepclassmembernames class * {
-@com.google.android.gms.common.annotation.KeepName *;
-}
--keepnames class * implements android.os.Parcelable {
-public static final ** CREATOR;
-}
-    </proguard-config>
   </platform>
 
 </plugin>
