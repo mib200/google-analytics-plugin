@@ -1,9 +1,9 @@
 {
-  "name": "com.cmackay.plugins.googleanalytics",
-  "version": "0.1.15",
-  "description": "Plugin for Google Analytics Native SDKs (Android, iOS)",
+  "name": "com.mib200.cordova.google-analytics",
+  "version": "1.0.0",
+  "description": "Google Analytics Cordova Plugin for iOS and Android",
   "cordova": {
-    "id": "com.cmackay.plugins.googleanalytics",
+    "id": "com.mib200.cordova.google-analytics",
     "platforms": [
       "ios",
       "android"
@@ -11,25 +11,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cmackay/google-analytics-plugin.git"
+    "url": "https://github.com/mib200/google-analytics-plugin.git"
   },
   "keywords": [
     "cordova",
+    "Google analytics",
+    "GA",
+    "phonegap",
+    "ionic",
+    "plugin",
+    "ios",
+    "android",
     "analytics",
     "ecosystem:cordova",
     "cordova-ios",
     "cordova-android"
   ],
-  "engines": [
-    {
-      "name": "cordova",
-      "version": ">=3.0.0"
-    }
-  ],
-  "author": "Craig MacKay",
-  "license": "Apache 2.0",
-  "bugs": {
-    "url": "https://github.com/cmackay/google-analytics-plugin/issues"
-  },
-  "homepage": "https://github.com/cmackay/google-analytics-plugin#readme"
+  "author": "Manish Kumar",
+  "license": "MIT"
 }

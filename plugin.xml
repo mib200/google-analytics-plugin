@@ -6,6 +6,7 @@
 
   <name>Google Analytics</name>
   <description>Google Analytics Cordova Plugin for iOS and Android</description>
+  <repo>https://github.com/mib200/google-analytics-plugin.git</repo>
   <author>Manish Kumar</author>
   <license>MIT License</license>
   <keywords>Google analytics, GA, cordova, phonegap, ionic, plugin, ios, android</keywords>
