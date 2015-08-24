@@ -1,4 +1,4 @@
-package com.cmackay.plugins.googleanalytics;
+package com.mib200.cordova.googleanalytics;
 
 import com.google.android.gms.analytics.Logger.LogLevel;
 import com.google.android.gms.analytics.Tracker;
