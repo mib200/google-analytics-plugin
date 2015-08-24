@@ -50,6 +50,9 @@
   </platform>
 
   <platform name="android">
+
+    <dependency id="com.google.playservices" />
+
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="GoogleAnalytics">
         <param name="android-package" value="com.mib200.cordova.googleanalytics.GoogleAnalyticsPlugin" />
@@ -68,7 +71,5 @@
     <source-file src="android/GoogleAnalyticsPlugin.java" target-dir="src/android" />
 
   </platform>
-
-  <dependency id="com.google.playservices" />
 
 </plugin>
