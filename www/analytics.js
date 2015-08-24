@@ -122,6 +122,11 @@ Analytics.prototype = {
        exec(success, error, 'GoogleAnalytics', 'setIDFAEnabled', []);
   },
 
+  disableAdvertisingIdCollection: function (success, error) {
+       argscheck.checkArgs('FF', 'analytics.enableAdvertisingIdCollection', arguments);
+       exec(success, error, 'GoogleAnalytics', 'setIDFADisabled', []);
+  },
+
   get: function (key, success, error) {
     argscheck.checkArgs('sfF', 'analytics.get', arguments);
     exec(success, error, 'GoogleAnalytics', 'get', [key]);

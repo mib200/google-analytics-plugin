@@ -16,6 +16,8 @@
     [[GAI sharedInstance] removeTrackerByName:[tracker name]];
   }
 
+  NSLog(@"GoogleAnalytics : Enabled GA with ID %@", [command.arguments objectAtIndex:0]);
+
   tracker = [[GAI sharedInstance] trackerWithTrackingId:trackingId];
   result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
 
@@ -33,6 +35,34 @@
   [self.commandDelegate sendPluginResult:result callbackId:[command callbackId]];
 }
 
+- (void) setIDFAEnabled: (CDVInvokedUrlCommand*)command
+{
+  CDVPluginResult* result = nil;
+
+  tracker = [[GAI sharedInstance] defaultTracker];
+  tracker.allowIDFACollection = YES;
+
+  NSLog(@"GoogleAnalytics : Enabled IDFA.");
+
+  result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+
+  [self.commandDelegate sendPluginResult:result callbackId:[command callbackId]];
+}
+
+- (void) setIDFADisabled: (CDVInvokedUrlCommand*)command
+{
+  CDVPluginResult* result = nil;
+
+  tracker = [[GAI sharedInstance] defaultTracker];
+  tracker.allowIDFACollection = NO;
+
+  NSLog(@"GoogleAnalytics : Disabled IDFA.");
+
+  result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+
+  [self.commandDelegate sendPluginResult:result callbackId:[command callbackId]];
+}
+
 - (void) setLogLevel: (CDVInvokedUrlCommand*)command
 {
   CDVPluginResult* result = nil;
@@ -40,6 +70,8 @@
   GAILogLevel logLevel = (GAILogLevel)[command.arguments objectAtIndex:0];
 
   [[[GAI sharedInstance] logger] setLogLevel:logLevel];
+
+  NSLog(@"GoogleAnalytics : Setting GA log level to %@", [command.arguments objectAtIndex:0]);
 
   result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
 
@@ -72,6 +104,8 @@
     [tracker set:key value:value];
     result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
   }
+
+  NSLog(@"GoogleAnalytics : Setting GA property %@ : %@", [command.arguments objectAtIndex:0], [command.arguments objectAtIndex:1]);
 
   [self.commandDelegate sendPluginResult:result callbackId:[command callbackId]];
 }

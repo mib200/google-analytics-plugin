@@ -63,6 +63,10 @@ public class GoogleAnalyticsPlugin extends CordovaPlugin {
       setIDFAEnabled(rawArgs, callback);
       return true;
 
+    } else if ("setIDFADisabled".equals(action)) {
+      setIDFADisabled(rawArgs, callback);
+      return true;
+
     } else if ("get".equals(action)) {
       get(rawArgs, callback);
       return true;
@@ -133,6 +137,13 @@ public class GoogleAnalyticsPlugin extends CordovaPlugin {
   private void setIDFAEnabled(String rawArgs, CallbackContext callbackContext) {
     if (hasTracker(callbackContext)) {
       tracker.enableAdvertisingIdCollection(true);
+      callbackContext.success();
+    }
+  }
+
+  private void setIDFADisabled(String rawArgs, CallbackContext callbackContext) {
+    if (hasTracker(callbackContext)) {
+      tracker.enableAdvertisingIdCollection(false);
       callbackContext.success();
     }
   }

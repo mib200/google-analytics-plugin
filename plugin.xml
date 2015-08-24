@@ -19,8 +19,6 @@
     <clobbers target="navigator.analytics" />
   </js-module>
 
-  <dependency id="com.google.playservices" />
-
   <platform name="ios">
     <config-file target="config.xml" parent="/*">
       <feature name="GoogleAnalytics">
@@ -32,6 +30,7 @@
     <source-file src="ios/GoogleAnalyticsPlugin.m" />
 
     <source-file src="ios/libGoogleAnalyticsServices.a" framework="true" />
+    <source-file src="ios/libAdIdAccess.a" framework="true" />
     <header-file src="ios/GAI.h" />
     <header-file src="ios/GAIDictionaryBuilder.h" />
     <header-file src="ios/GAIEcommerceFields.h" />
@@ -43,6 +42,7 @@
     <header-file src="ios/GAITrackedViewController.h" />
     <header-file src="ios/GAITracker.h" />
 
+    <framework src="AdSupport.framework" weak="true" />
     <framework src="SystemConfiguration.framework" />
     <framework src="CoreData.framework" />
     <framework src="libsqlite3.dylib" />
@@ -68,5 +68,7 @@
     <source-file src="android/GoogleAnalyticsPlugin.java" target-dir="src/android" />
 
   </platform>
+
+  <dependency id="com.google.playservices" />
 
 </plugin>
